@@ -1,0 +1,52 @@
+{
+  "short_name": "Daily Organizer",
+  "name": "Daily Task Organizer",
+  "description": "Organizador diario de tareas",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#1a1b1e",
+  "theme_color": "#1a1b1e",
+  "start_url": "/",
+  "scope": "/",
+  "display_override": [
+    "window-controls-overlay"
+  ],
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "prefer_related_applications": false,
+  "categories": ["productivity", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Nueva Tarea",
+      "url": "/?action=new",
+      "description": "Crear nueva tarea"
+    },
+    {
+      "name": "Tareas Pendientes",
+      "url": "/?filter=pending",
+      "description": "Ver tareas pendientes"
+    }
+  ],
+  "related_applications": [],
+  "screenshots": [],
+  "protocol_handlers": [
+    {
+      "protocol": "web+task",
+      "url": "/?task=%s"
+    }
+  ],
+  "share_target": {
+    "action": "/?share",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}

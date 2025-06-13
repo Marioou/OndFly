@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#1a1b1e" />
+    <meta name="description" content="Organizador diario de tareas" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Daily Organizer" />
+    <meta name="msapplication-TileColor" content="#1a1b1e" />
+    <meta name="msapplication-navbutton-color" content="#1a1b1e" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Daily Organizer" />
+    <meta name="apple-mobile-web-app-title" content="Daily Organizer" />
+    <meta name="msapplication-starturl" content="/" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" type="application/manifest+json" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <title>Organizador Diario</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+      @media (display-mode: standalone) {
+        body {
+          background-color: #1a1b1e;
+        }
+      }
+    </style>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+              console.log('Service Worker registrado con éxito:', registration.scope);
+            })
+            .catch(error => {
+              console.error('Error al registrar el Service Worker:', error);
+            });
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

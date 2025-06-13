@@ -1,0 +1,51 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Regla base: denegar todo por defecto
+    match /{document=**} {
+      allow read, write: if false;
+    }
+    
+    // Reglas para la colección tasks
+    match /tasks/{taskId} {
+      // Permitir lectura si el usuario está autenticado y el documento le pertenece
+      allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+      
+      // Permitir creación si el usuario está autenticado y es el propietario
+      allow create: if request.auth != null 
+        && request.resource.data.userId == request.auth.uid
+        && validTask();
+      
+      // Permitir actualización si el usuario está autenticado y es el propietario
+      allow update: if request.auth != null 
+        && resource.data.userId == request.auth.uid
+        && request.resource.data.userId == request.auth.uid
+        && validTask();
+      
+      // Permitir eliminación si el usuario está autenticado y es el propietario
+      allow delete: if request.auth != null 
+        && resource.data.userId == request.auth.uid;
+    }
+
+    // Reglas para la colección logs
+    match /logs/{logId} {
+      allow create: if request.auth != null 
+        && request.resource.data.userId == request.auth.uid;
+      allow read: if request.auth != null 
+        && resource.data.userId == request.auth.uid;
+    }
+    
+    // Función para validar la estructura de una tarea
+    function validTask() {
+      let requiredFields = ['id', 'title', 'complexity', 'urgency', 'isCompleted', 'userId'];
+      let task = request.resource.data;
+      
+      return task.keys().hasAll(requiredFields)
+        && task.title is string && task.title.size() > 0
+        && task.complexity in ['low', 'medium', 'high']
+        && task.urgency in ['low', 'medium', 'high']
+        && task.isCompleted is bool
+        && task.userId is string;
+    }
+  }
+}
