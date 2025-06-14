@@ -6,8 +6,8 @@
   "orientation": "any",
   "background_color": "#1a1b1e",
   "theme_color": "#1a1b1e",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "https://ondfly.onrender.com/",
+  "scope": "https://ondfly.onrender.com/",
   "display_override": [
     "window-controls-overlay"
   ],
