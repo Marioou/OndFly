@@ -20,3 +20,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Cleanup
+.idea/
+.gradle/
+manifest-checksum.txt
+CORRECCIONES-COMPLETADAS.md
+INICIO-OPCIONES.md
+INICIO-OPCIONES-ACTUALIZADO.md
+PROYECTO-COMPLETADO.md

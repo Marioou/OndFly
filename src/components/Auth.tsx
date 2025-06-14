@@ -1,17 +1,19 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { AuthService } from '../services/AuthService';
+import { motion } from 'framer-motion';
 
 interface AuthProps {
     onAuthSuccess: () => void;
 }
 
 const Auth: React.FC<AuthProps> = ({ onAuthSuccess }) => {
-    const [email, setEmail] = useState('admin@dailyorganizer.com');
-    const [password, setPassword] = useState('1234');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [isLogin, setIsLogin] = useState(true);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [isOnline, setIsOnline] = useState(navigator.onLine);
+    const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
         const handleOnline = () => setIsOnline(true);
@@ -24,6 +26,11 @@ const Auth: React.FC<AuthProps> = ({ onAuthSuccess }) => {
             window.removeEventListener('online', handleOnline);
             window.removeEventListener('offline', handleOffline);
         };
+    }, []);
+
+    useEffect(() => {
+        // Trigger entrance animation after mount
+        setShowForm(true);
     }, []);
 
     const handleSubmit = useCallback(async (e: React.FormEvent) => {
@@ -57,7 +64,12 @@ const Auth: React.FC<AuthProps> = ({ onAuthSuccess }) => {
 
     return (
         <div className="auth-container">
-            <div className="auth-box">
+            <motion.div
+                className="auth-box"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={showForm ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5 }}
+            >
                 <h2>{isLogin ? 'Iniciar Sesión' : 'Registrarse'}</h2>
                 
                 {!isOnline && (
@@ -118,18 +130,12 @@ const Auth: React.FC<AuthProps> = ({ onAuthSuccess }) => {
                     {isLogin ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia sesión'}
                 </button>
                 
-                <div className="auth-info">
-                    <p>Credenciales por defecto:</p>
-                    <code>Email: admin@dailyorganizer.com</code><br/>
-                    <code>Contraseña: 1234</code>
-                </div>
-                
                 {loading && (
                     <div className="auth-loading">
                         <div className="auth-loading-spinner" />
                     </div>
                 )}
-            </div>
+            </motion.div>
         </div>
     );
 };
