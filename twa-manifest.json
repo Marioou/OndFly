@@ -1,8 +1,8 @@
 {
   "packageId": "com.onrender.ondfly.twa",
   "host": "ondfly.onrender.com",
-  "name": "OndFly",
-  "launcherName": "Fly v1.4.0",
+  "name": "Daily Task Organizer",
+  "launcherName": "Fly",
   "display": "standalone",
   "themeColor": "#1A1B1E",
   "themeColorDark": "#000000",
@@ -13,12 +13,13 @@
   "backgroundColor": "#1A1B1E",
   "enableNotifications": true,
   "startUrl": "/",
-  "iconUrl": "https://ondfly.onrender.com/favicon.ico",
-  "maskableIconUrl": "https://ondfly.onrender.com/favicon.ico",
+  "iconUrl": "https://ondfly.onrender.com/icon.png",
+  "maskableIconUrl": "https://ondfly.onrender.com/icon.png",
+  "monochromeIconUrl": "https://ondfly.onrender.com/icon.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
     "path": "C:\\Users\\Admin\\Documents\\daily-organizer\\android.keystore",
-    "alias": "android"
+    "alias": "Fly"
   },
   "appVersionName": "1",
   "appVersionCode": 1,
@@ -27,12 +28,15 @@
   "webManifestUrl": "https://ondfly.onrender.com/manifest.json",
   "fallbackType": "customtabs",
   "features": {
+    "playBilling": {
+      "enabled": true
+    },
     "locationDelegation": {
       "enabled": true
     }
   },
   "alphaDependencies": {
-    "enabled": false
+    "enabled": true
   },
   "enableSiteSettingsShortcut": true,
   "isChromeOSOnly": false,
@@ -48,7 +52,7 @@
       "url": "url"
     }
   },
-  "orientation": "default",
+  "orientation": "any",
   "fingerprints": [],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],

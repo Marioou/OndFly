@@ -24,8 +24,8 @@ def twaManifest = [
     applicationId: 'com.onrender.ondfly.twa',
     hostName: 'ondfly.onrender.com', // The domain being opened in the TWA.
     launchUrl: '/', // The start path for the TWA. Must be relative to the domain.
-    name: 'OndFly', // The application name.
-    launcherName: 'Fly v1.4.0', // The name shown on the Android Launcher.
+    name: 'Daily Task Organizer', // The application name.
+    launcherName: 'Fly', // The name shown on the Android Launcher.
     themeColor: '#1A1B1E', // The color used for the status bar.
     themeColorDark: '#000000', // The color used for the dark status bar.
     navigationColor: '#000000', // The color used for the navigation bar.
@@ -47,7 +47,7 @@ def twaManifest = [
     // 'customtabs' and 'webview'.
     fallbackType: 'customtabs',
     enableSiteSettingsShortcut: 'true',
-    orientation: 'default',
+    orientation: 'any',
 ]
 
 android {
@@ -212,6 +212,8 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     
         implementation 'com.google.androidbrowserhelper:locationdelegation:1.1.2'
+    
+        implementation 'com.google.androidbrowserhelper:billing:1.0.1'
     
         implementation 'com.google.androidbrowserhelper:androidbrowserhelper:2.6.1'
     
