@@ -2,15 +2,12 @@
   "short_name": "Daily Organizer",
   "name": "Daily Task Organizer",
   "description": "Organizador diario de tareas",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "any",
   "background_color": "#1a1b1e",
   "theme_color": "#1a1b1e",
   "start_url": "https://ondfly.onrender.com/",
   "scope": "https://ondfly.onrender.com/",
-  "display_override": [
-    "window-controls-overlay"
-  ],
   "icons": [
     {
       "src": "https://ondfly.onrender.com/icon.png",
