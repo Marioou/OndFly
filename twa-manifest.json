@@ -1,0 +1,64 @@
+{
+  "packageId": "com.onrender.ondfly.twa",
+  "host": "ondfly.onrender.com",
+  "name": "OndFly",
+  "launcherName": "Fly v1.4.0",
+  "display": "standalone",
+  "themeColor": "#1A1B1E",
+  "themeColorDark": "#000000",
+  "navigationColor": "#000000",
+  "navigationColorDark": "#000000",
+  "navigationDividerColor": "#000000",
+  "navigationDividerColorDark": "#000000",
+  "backgroundColor": "#1A1B1E",
+  "enableNotifications": true,
+  "startUrl": "/",
+  "iconUrl": "https://ondfly.onrender.com/favicon.ico",
+  "maskableIconUrl": "https://ondfly.onrender.com/favicon.ico",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "C:\\Users\\Admin\\Documents\\daily-organizer\\android.keystore",
+    "alias": "android"
+  },
+  "appVersionName": "1",
+  "appVersionCode": 1,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://ondfly.onrender.com/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {
+    "locationDelegation": {
+      "enabled": true
+    }
+  },
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://ondfly.onrender.com/",
+  "minSdkVersion": 21,
+  "shareTarget": {
+    "action": "https://ondfly.onrender.com/?share",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "orientation": "default",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "protocolHandlers": [
+    {
+      "protocol": "web+task",
+      "url": "https://ondfly.onrender.com/?task=%s"
+    }
+  ],
+  "fileHandlers": [],
+  "launchHandlerClientMode": "",
+  "appVersion": "1"
+}
