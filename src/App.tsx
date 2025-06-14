@@ -12,6 +12,7 @@ import './App.css';
 const App: React.FC = () => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
+    const [updateAvailable, setUpdateAvailable] = useState(false);
 
     useEffect(() => {
         let isMounted = true;
@@ -35,10 +36,15 @@ const App: React.FC = () => {
                 setLoading(false);
             }
         });
+        // Listen for service worker update event
+        const onUpdate = () => setUpdateAvailable(true);
+        window.addEventListener('swUpdated', onUpdate);
+
         return () => {
             isMounted = false;
             unsubscribe();
             window.removeEventListener('online', handleOnline);
+            window.removeEventListener('swUpdated', onUpdate);
         };
     }, []);
 
@@ -66,27 +72,35 @@ const App: React.FC = () => {
     }
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <div className="header-content">
-                    <h1>Organizador Diario</h1>
-                    <div className="version-info">
-                        <span>v1.4.0</span>
-                        <span className="beta-tag">Beta</span>
+        <>
+            {updateAvailable && (
+                <div className="update-banner">
+                    <span>Se ha actualizado la aplicación.</span>
+                    <button className="reload-button" onClick={() => window.location.reload()}>Recargar</button>
+                </div>
+            )}
+            <div className="App">
+                <header className="App-header">
+                    <div className="header-content">
+                        <h1>Organizador Diario</h1>
+                        <div className="version-info">
+                            <span>v1.4.0</span>
+                            <span className="beta-tag">Beta</span>
+                        </div>
                     </div>
-                </div>
-                <div className="account-section">
-                    <ConnectivityStatus />
-                    <span className="user-email">{user?.email}</span>
-                    <button onClick={handleSignOut} className="sign-out-button">
-                        Cerrar Sesión
-                    </button>
-                </div>
-            </header>
-            <main>
-                <TaskList />
-            </main>
-        </div>
+                    <div className="account-section">
+                        <ConnectivityStatus />
+                        <span className="user-email">{user?.email}</span>
+                        <button onClick={handleSignOut} className="sign-out-button">
+                            Cerrar Sesión
+                        </button>
+                    </div>
+                </header>
+                <main>
+                    <TaskList />
+                </main>
+            </div>
+        </>
     );
 };
 

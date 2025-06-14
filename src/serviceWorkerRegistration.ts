@@ -6,6 +6,20 @@ export function registerServiceWorker() {
         .register('/service-worker.js')
         .then(registration => {
           console.log('[SW] Service Worker registered:', registration);
+          // Listen for updates
+          registration.onupdatefound = () => {
+            const installingWorker = registration.installing;
+            if (installingWorker) {
+              installingWorker.onstatechange = () => {
+                if (installingWorker.state === 'installed') {
+                  if (navigator.serviceWorker.controller) {
+                    // New update available
+                    window.dispatchEvent(new Event('swUpdated'));
+                  }
+                }
+              };
+            }
+          };
         })
         .catch(error => {
           console.error('[SW] Service Worker registration failed:', error);
