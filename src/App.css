@@ -39,6 +39,7 @@ body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 /* Mobile centering override */
@@ -53,6 +54,12 @@ body {
     box-sizing: border-box;
   }
 
+  /* Ensure App container scrolls beyond viewport */
+  .App {
+    height: auto;
+    overflow-y: auto;
+  }
+
   /* Hamburger menu icon style */
   .menu-icon {
     background: none;
@@ -61,6 +68,21 @@ body {
     cursor: pointer;
     margin-left: 5px;
     color: var(--text-primary);
+  }
+
+  /* Mobile checkbox styling: smaller and lavender accent */
+  .task-header input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--accent-blue);
+    border-radius: 3px;
+    background-color: var(--bg-card);
+  }
+  .task-header input[type="checkbox"]:checked {
+    background-color: var(--accent-blue);
+    border-color: var(--accent-blue);
+    /* No textured background on mobile, solid fill */
+    background-image: none;
   }
 }
 
@@ -129,6 +151,7 @@ body {
   color: var(--text-primary);
   font-family: 'Inter', sans-serif;
   font-size: 14px;
+  min-width: 0;
 }
 
 .task-input:focus {
@@ -605,6 +628,7 @@ main {
   color: var(--text-primary);
   font-family: 'Inter', sans-serif;
   font-size: 14px;
+  min-width: 0;
 }
 
 .auth-field input:focus {
@@ -1131,4 +1155,29 @@ html {
   .desktop-header .account-section {
     margin-left: auto;
   }
+}
+
+/* Ensure App container can position footer */
+.App {
+  position: relative;
+}
+
+/* Fix search bar/input overflow */
+.task-form,
+.tasks-container {
+  min-width: 0;
+}
+.task-input {
+  min-width: 0;
+}
+
+/* Footer with version number */
+.app-footer {
+  position: absolute;
+  bottom: 3px;
+  width: 100%;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 12px;
+  pointer-events: none;
 }

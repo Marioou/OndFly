@@ -122,6 +122,10 @@ const App: React.FC = () => {
                 <main>
                     <TaskList />
                 </main>
+                {/* Footer with version number and BETA tag */}
+                <footer className="app-footer">
+                    <span className="version-number">v2.0.0 <span className="beta-tag">BETA</span></span>
+                </footer>
             </div>
         </>
     );
