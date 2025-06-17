@@ -2,9 +2,9 @@
 > daily-organizer@1.0.0 start
 > react-scripts start
 
-(node:14760) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:11800) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 (Use `node --trace-deprecation ...` to show where the warning was created)
-(node:14760) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:11800) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 [36mStarting the development server...[39m
 [36m[39m
 [32mCompiled successfully![39m
@@ -20,5 +20,3 @@ To create a production build, use [36mnpm run build[39m.
 webpack compiled [1m[32msuccessfully[39m[22m
 [33mFiles successfully emitted, waiting for typecheck results...[39m
 [36mIssues checking in progress...[39m
-[32mNo issues found.[39m
-^C

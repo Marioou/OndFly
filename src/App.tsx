@@ -13,6 +13,7 @@ const App: React.FC = () => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
     const [updateAvailable, setUpdateAvailable] = useState(false);
+    const [profileMenuOpen, setProfileMenuOpen] = useState(false);
 
     useEffect(() => {
         let isMounted = true;
@@ -81,19 +82,34 @@ const App: React.FC = () => {
             )}
             <div className="App">
                 <header className="App-header">
-                    <div className="header-content">
-                        <h1>Organizador Diario</h1>
-                        <div className="version-info">
-                            <span>v1.4.0</span>
-                            <span className="beta-tag">Beta</span>
+                    {/* Desktop header */}
+                    <div className="desktop-header">
+                        <div className="header-content">
+                            <h1>OnDfly</h1>
+                            <div className="version-info">
+                                <span>v2.0.0</span>
+                                <span className="beta-tag">Beta</span>
+                            </div>
+                        </div>
+                        <div className="account-section">
+                            <ConnectivityStatus />
+                            <span className="user-email">{user.email}</span>
+                            <button onClick={handleSignOut} className="sign-out-button">Cerrar sesión</button>
                         </div>
                     </div>
-                    <div className="account-section">
-                        <ConnectivityStatus />
-                        <span className="user-email">{user?.email}</span>
-                        <button onClick={handleSignOut} className="sign-out-button">
-                            Cerrar Sesión
-                        </button>
+                    {/* Mobile header */}
+                    <div className="mobile-header">
+                        <div className="app-title">
+                            <h1>OnDfly</h1>
+                            <span className="app-subtitle">Daily organizer</span>
+                        </div>
+                        <span className="user-icon" onClick={() => setProfileMenuOpen(!profileMenuOpen)}>👤</span>
+                        {profileMenuOpen && (
+                            <div className="profile-menu">
+                                <button className="profile-item">Perfil</button>
+                                <button className="profile-item" onClick={handleSignOut}>Cerrar sesión</button>
+                            </div>
+                        )}
                     </div>
                 </header>
                 <main>

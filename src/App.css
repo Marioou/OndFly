@@ -31,27 +31,49 @@ body {
 }
 
 .App {
-  /* Center content based on display size */
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 52px 10px 32px;
+  height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto;
+}
+
+/* Mobile centering override */
+@media (max-width: 768px) {
+  .App {
+    /* Center content for mobile */
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
 }
 
 .App-header {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
-  padding: 0 10px;
-  position: relative;
-  top: -10px;
+  padding: 16px;
+}
+
+/* App title and subtitle styling */
+.app-title {
+  display: flex;
+  flex-direction: column;
+}
+.app-title h1 {
+  margin: 0;
+  font-size: 24px;
+}
+.app-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
 }
 
 .App-header h1 {
@@ -874,21 +896,67 @@ html {
 @media (max-width: 768px) {
   .mobile-tabs {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 12px;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    width: 100%;
+    padding: 0 8px;
+    box-sizing: border-box;
   }
   .mobile-tabs button {
     flex: 1;
-    padding: 8px;
-    background: var(--bg-card);
+    margin: 0 4px;
+    padding: 10px;
+    background-color: var(--bg-card);
     color: var(--text-primary);
     border: none;
+    border-radius: 6px;
     font-size: 14px;
-    cursor: pointer;
+    transition: background-color 0.2s;
   }
-  .mobile-tabs button.active {
-    background: var(--accent-blue);
-    color: var(--bg-main);
+  .mobile-tabs button.active,
+  .mobile-tabs button:hover {
+    background-color: var(--accent-blue);
+    color: white;
+  }
+
+  /* Mobile task container full width */
+  .tasks-container {
+    width: 100%;
+    padding: 0 8px;
+    box-sizing: border-box;
+  }
+
+  /* Task form full width */
+  .task-form {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 12px;
+    padding: 0 8px;
+  }
+
+  /* Task item adjustments */
+  .task-item {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+
+  /* Simplify controls on mobile */
+  .task-controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .task-controls .control-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .task-controls .control-group label {
+    font-size: 14px;
+  }
+  .task-controls .control-group select {
+    font-size: 14px;
+    padding: 6px;
   }
 }
 
@@ -949,34 +1017,108 @@ html {
   }
 }
 
-/* Texture for completed checkbox */
-.task-header input[type="checkbox"] {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 24px;
-  height: 24px;
-  border: 2px solid var(--border-color);
-  border-radius: 4px;
-  background-color: var(--bg-card);
+/* Header adjustments for responsive layout */
+.App-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+/* App title and subtitle styling */
+.app-title {
+  display: flex;
+  flex-direction: column;
+}
+.app-title h1 {
+  margin: 0;
+  font-size: 24px;
+}
+.app-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Header visibility */
+.desktop-header {
+  display: flex;
+}
+.mobile-header {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-header {
+    display: none;
+  }
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+}
+
+/* Profile menu dropdown */
+.user-icon {
+  font-size: 24px;
+  margin-left: 12px;
   cursor: pointer;
-  transition: all 0.2s ease;
+}
+.profile-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  overflow: hidden;
+  z-index: 1000;
+}
+.profile-item {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  color: var(--text-primary);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.profile-item:hover {
+  background-color: var(--bg-card-hover);
 }
 
-.task-header input[type="checkbox"]:checked {
-  background-color: var(--accent-green);
-  /* subtle diagonal texture */
-  background-image: repeating-linear-gradient(
-    45deg,
-    rgba(255,255,255,0.15) 0,
-    rgba(255,255,255,0.15) 2px,
-    transparent 2px,
-    transparent 4px
-  );
-  background-size: 100% 100%;
-  border-color: var(--accent-green);
+/* Hide version on mobile to save space */
+@media (max-width: 768px) {
+  .version-info {
+    display: none;
+  }
+  .App-header {
+    padding: 8px;
+  }
 }
 
-.task-header input[type="checkbox"]:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.5);
+/* Desktop header layout */
+@media (min-width: 769px) {
+  .desktop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: -20px;
+    width: 100%;
+  }
+  .desktop-header .header-content {
+    margin-right: auto;
+  }
+  .desktop-header .account-section {
+    margin-left: auto;
+  }
 }
