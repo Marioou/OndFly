@@ -21,8 +21,8 @@
     "path": "C:\\Users\\Admin\\Documents\\daily-organizer\\android.keystore",
     "alias": "Fly"
   },
-  "appVersionName": "2",
-  "appVersionCode": 2,
+  "appVersionName": "3",
+  "appVersionCode": 3,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
   "webManifestUrl": "https://ondfly.onrender.com/manifest.json",
@@ -64,5 +64,5 @@
   ],
   "fileHandlers": [],
   "launchHandlerClientMode": "",
-  "appVersion": "2"
+  "appVersion": "3"
 }

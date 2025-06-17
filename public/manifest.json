@@ -2,7 +2,7 @@
   "short_name": "Daily Organizer",
   "name": "Daily Task Organizer",
   "description": "Organizador diario de tareas",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "any",
   "background_color": "#1a1b1e",
   "theme_color": "#1a1b1e",
