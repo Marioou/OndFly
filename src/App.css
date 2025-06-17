@@ -45,12 +45,22 @@ body {
 @media (max-width: 768px) {
   .App {
     /* Center content for mobile */
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: stretch;
     width: 100vw;
-    height: 100vh;
-    padding: 20px;
+    height: auto;
+    padding: 5px;
     box-sizing: border-box;
+  }
+
+  /* Hamburger menu icon style */
+  .menu-icon {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 5px;
+    color: var(--text-primary);
   }
 }
 
@@ -897,9 +907,9 @@ html {
   .mobile-tabs {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     width: 100%;
-    padding: 0 8px;
+    padding: 0 5px;
     box-sizing: border-box;
   }
   .mobile-tabs button {
@@ -922,7 +932,7 @@ html {
   /* Mobile task container full width */
   .tasks-container {
     width: 100%;
-    padding: 0 8px;
+    padding: 0 5px;
     box-sizing: border-box;
   }
 
@@ -931,13 +941,13 @@ html {
     width: 100%;
     max-width: none;
     margin-bottom: 12px;
-    padding: 0 8px;
+    padding: 0 5px;
   }
 
   /* Task item adjustments */
   .task-item {
     width: 100%;
-    padding: 12px;
+    padding: 8px;
     margin-bottom: 12px;
   }
 
@@ -1057,7 +1067,7 @@ html {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 16px;
+    padding: 5px;
     box-sizing: border-box;
   }
 }

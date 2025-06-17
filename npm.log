@@ -20,3 +20,49 @@ To create a production build, use [36mnpm run build[39m.
 webpack compiled [1m[32msuccessfully[39m[22m
 [33mFiles successfully emitted, waiting for typecheck results...[39m
 [36mIssues checking in progress...[39m
+[32mNo issues found.[39m
+Compiling...
+[32mCompiled successfully![39m
+webpack compiled [1m[32msuccessfully[39m[22m
+[32mNo issues found.[39m
+Compiling...
+[32mCompiled successfully![39m
+webpack compiled [1m[32msuccessfully[39m[22m
+[32mNo issues found.[39m
+Compiling...
+[32mCompiled successfully![39m
+webpack compiled [1m[32msuccessfully[39m[22m
+[32mNo issues found.[39m
+Compiling...
+[32mCompiled successfully![39m
+webpack compiled [1m[32msuccessfully[39m[22m
+Compiling...
+[32mNo issues found.[39m
+[32mCompiled successfully![39m
+webpack compiled [1m[32msuccessfully[39m[22m
+[32mNo issues found.[39m
+Compiling...
+[32mCompiled successfully![39m
+webpack compiled [1m[32msuccessfully[39m[22m
+[32mNo issues found.[39m
+Compiling...
+[32mCompiled successfully![39m
+webpack compiled [1m[32msuccessfully[39m[22m
+[32mNo issues found.[39m
+Compiling...
+[32mCompiled successfully![39m
+webpack compiled [1m[32msuccessfully[39m[22m
+[32mNo issues found.[39m
+Compiling...
+[32mCompiled successfully![39m
+webpack compiled [1m[32msuccessfully[39m[22m
+[32mNo issues found.[39m
+Compiling...
+[32mCompiled successfully![39m
+webpack compiled [1m[32msuccessfully[39m[22m
+[32mNo issues found.[39m
+Compiling...
+[32mCompiled successfully![39m
+webpack compiled [1m[32msuccessfully[39m[22m
+[32mNo issues found.[39m
+^C^C
