@@ -919,3 +919,64 @@ html {
   background-color: var(--accent-blue);
   color: white;
 }
+
+/* UX/UI Mobile enhancements */
+@media (max-width: 768px) {
+  .App {
+    padding: 16px;
+  }
+
+  .task-item {
+    padding: 12px;
+  }
+
+  .add-button,
+  .delete-button,
+  .sign-out-button,
+  .reload-button {
+    padding: 14px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+  }
+
+  .task-header h3 {
+    font-size: 18px;
+  }
+
+  .task-controls .control-group select {
+    font-size: 16px;
+    padding: 8px;
+  }
+}
+
+/* Texture for completed checkbox */
+.task-header input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-card);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.task-header input[type="checkbox"]:checked {
+  background-color: var(--accent-green);
+  /* subtle diagonal texture */
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.15) 0,
+    rgba(255,255,255,0.15) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  background-size: 100% 100%;
+  border-color: var(--accent-green);
+}
+
+.task-header input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.5);
+}
