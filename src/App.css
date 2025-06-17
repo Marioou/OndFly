@@ -19,7 +19,13 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: auto;
+}
+
+@media (min-width: 769px) {
+  html, body {
+    overflow: hidden;
+  }
 }
 
 body {
@@ -140,10 +146,12 @@ body {
   max-width: 600px;
   width: 100%;
   padding: 0 10px;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .task-input {
-  flex: 1;
+  flex: 1 1 auto;
   padding: 12px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -1173,7 +1181,7 @@ html {
 
 /* Footer with version number */
 .app-footer {
-  position: absolute;
+  position: fixed;
   bottom: 3px;
   width: 100%;
   text-align: center;
